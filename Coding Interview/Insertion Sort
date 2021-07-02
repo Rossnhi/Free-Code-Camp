@@ -1,0 +1,11 @@
+function insertionSort(array) {
+  for (let i = 0; i < array.length; i++) {
+    let index = i
+    for ( let j = i-1; j >= 0 && array[index] < array[j]; j--) {
+      console.log(array[index], array[j], array);
+      [array[index], array[j]] = [array[j], array[index]];
+      index = j;
+    }
+  }
+  return array;
+}
