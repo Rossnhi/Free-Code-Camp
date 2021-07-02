@@ -1,20 +1,21 @@
 function palindrome(str) {
   let i = 0;
-  let j = str.length-1;
+  let j = str.length - 1;
+  let myReg = /[a-z0-9]/i;
   while(i < j) {
-    if (str[i].toLowerCase() == str[i].toUpperCase() && str[i]!= parseInt(str[i])){
+    if (myReg.test(str[i]) && myReg.test(str[j])) {
+      if(str[i].toUpperCase() != str[j].toUpperCase()) {
+        return false;
+      }
       i++;
-      continue;
-    }
-    if (str[j].toLowerCase() == str[j].toUpperCase() && str[j]!= parseInt(str[j])){
       j--;
-      continue;
     }
-    if (str[i].toUpperCase() != str[j].toUpperCase()){
-      return false;
+    if (!myReg.test(str[i])) {
+      i++;
     }
-    i++;
-    j--;
+    if (!myReg.test(str[j])) {
+      j--;
+    }
   }
   return true;
 }
