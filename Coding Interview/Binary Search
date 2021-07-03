@@ -1,0 +1,20 @@
+function binarySearch(arr, item) {
+  let pos = -1;
+  let start = 0;
+  let end = arr.length-1;
+  while (start <= end) {
+    let middle = start + parseInt((end - start)/2);
+    console.log(start, end, middle, arr[middle]);
+    if (item == arr[middle]) {
+      pos = middle;
+       break;
+    }
+    else if (item < arr[middle]) {
+      end = middle - 1;
+    }
+    else {
+      start = middle + 1;
+    }
+  }
+  return pos;
+}
